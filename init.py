@@ -33,11 +33,5 @@ def uploading_files():
                 for line_num, line in enumerate(file, 1):
                     yield line, curr_path, line_num
 
-# def init_trie(trie): # the whole data
-#     path = './python-3.8.4-docs-text/python-3.8.4-docs-text/bugs.txt'
-#     with open(path) as file:
-#         for line_num, line in enumerate(file, 1):
-#             line = edit_sentence(line)
-#             while line != "":
-#                 trie.insert(line, path + f"/{line_num}")
-#                 line = line[1:]
+
+

@@ -22,13 +22,5 @@ class Trie(object):
         return current['/']
 
 
-    # def search(self, prefix):
-    #     rec_search(self, self.child,)
-    #
-    #
-    # def rec_search(self, sentence, current, ):
-    #     if sentence == ""
-    #     if len(current) == 1:
-    #         return current, # ... TODO:
 
 
