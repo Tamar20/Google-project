@@ -1,5 +1,4 @@
-from init import *
-
+from init import *  # for init_data()
 from complete import *
 
 
@@ -16,6 +15,9 @@ class AutoCompleteData:
         self.offset = offset
         self.score = score
 
+    def __hash__(self):
+        return hash((self.completed_sentence, self.source_text, self.offset, self.score))
+
     def auto_comp_print(self):
         print(f"{self.completed_sentence} (score: {self.score})")
 
@@ -30,19 +32,21 @@ def main():
     print("\nLoading the files and preparing the system...")
     data = init_data()
     print("The system is ready. ", end="")
+
     while 1:
         user_input = input("Enter your text:\n")
+
         if user_input == "":
             break
+
         while '#' not in user_input:
             res = get_best_k_completions(user_input, data)
             print(f"Here are {len(res)} suggestions:")
-            # for i, l in enumerate(res, 1):
-            #     print(f"{i}. {l}", end="")
+
             for i, l in enumerate(res, 1):
                 print(f"{i}.", end=" ")
-                print(f"{l.auto_comp_print()}")
-            
+                l.auto_comp_print()
+
             user_input += input(f"{user_input}")
 
     print("\nThank you for using our autocomplete\nGoodbye!!")
